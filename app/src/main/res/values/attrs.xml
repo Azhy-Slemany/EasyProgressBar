@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="EasyProgressBar">
+        <attr name="backColor" format="color"/>
+        <attr name="foreColor" format="color"/>
+        <attr name="border" format="color"/>
+        <attr name="fillDirection" format="enum">
+            <enum name="rightToLeft" value="0"/>
+            <enum name="leftToRight" value="1"/>
+            <enum name="upToDown" value="2"/>
+            <enum name="downToUp" value="3"/>
+        </attr>
+        <attr name="value" format="float" />
+        <attr name="maxValue" format="float"/>
+    </declare-styleable>
+</resources>

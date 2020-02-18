@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.example.easyprogressbar.EasyProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="50dp"
+        android:layout_centerHorizontal="true"
+        app:backColor="#2F3C0000"
+        app:foreColor="#3FD100"
+        app:value="10.0"
+        app:maxValue="50.0"
+        app:border="@android:color/black"
+        app:fillDirection="leftToRight"/>
+
+    <com.example.easyprogressbar.EasyProgressBar
+        android:id="@+id/progressBar1"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        app:backColor="#74FF0000"
+        app:foreColor="#FF0026"
+        app:value="10.0"
+        app:maxValue="50.0"
+        app:fillDirection="upToDown"/>
+
+    <com.example.easyprogressbar.EasyProgressBar
+        android:id="@+id/progressBar2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        app:backColor="#2F207AFF"
+        app:foreColor="#0026FD"
+        app:value="10.0"
+        app:maxValue="50.0"
+        app:fillDirection="rightToLeft"/>
+
+    <com.example.easyprogressbar.EasyProgressBar
+        android:id="@+id/progressBar3"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_centerVertical="true"
+        app:backColor="#2FFFC400"
+        app:foreColor="#FABC00"
+        app:value="10.0"
+        app:maxValue="50.0"
+        app:fillDirection="downToUp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Animations"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+</RelativeLayout>
