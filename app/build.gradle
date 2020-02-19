@@ -3,7 +3,6 @@ apply plugin: 'com.android.library'
 
 
 
-//Step II: Add the below publish details
 publish {
 
     def groupProjectID = 'com.example.easyprogressbar'
@@ -16,7 +15,7 @@ publish {
     artifactId = artifactProjectID
     publishVersion = publishVersionID
     desc = 'Android library for displaying and animating progress of an object.'
-    website = ''
+    website = 'https://github.com/Azhy-Slemany/EasyProgressBar'
 }
 
 android {

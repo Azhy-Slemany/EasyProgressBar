@@ -2,9 +2,11 @@ package com.example.easyprogressbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,5 +57,18 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+
+        EasyProgressBar progressBar = new EasyProgressBar(this, Color.WHITE, Color.GREEN, EasyProgressBar.LEFT_TO_RIGHT);
+        progressBar.setBorderColor(Color.WHITE);
+        RelativeLayout parent = findViewById(R.id.parent);
+        parent.addView(progressBar);
+
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) progressBar.getLayoutParams();
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+        layoutParams.height = 10;
+        layoutParams.width = RelativeLayout.LayoutParams.MATCH_PARENT;
+        progressBar.setLayoutParams(layoutParams);
+
+        progressBar.addValueAnimated(100, 3, 100);
     }
 }

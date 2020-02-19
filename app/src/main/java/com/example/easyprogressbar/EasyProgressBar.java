@@ -14,10 +14,15 @@ public class EasyProgressBar extends View {
 
     public static final String TAG = "EasyProgressBar";
 
+    public static final int LEFT_TO_RIGHT = 0;
+    public static final int RIGHT_TO_LEFT = 1;
+    public static final int UP_TO_DOWN = 2;
+    public static final int DOWN_TO_UP = 3;
+
     private int backColor, foreColor, border;
     private int fillDirection;
     private double value, maxValue;
-    boolean isAnimating = false;
+    private boolean isAnimating = false;
     Paint paint;
 
     public EasyProgressBar(Context context, AttributeSet attrs) {
@@ -49,6 +54,22 @@ public class EasyProgressBar extends View {
         paint = new Paint();
     }
 
+    public EasyProgressBar(Context context, int backColor, int foreColor, int fillDirection) {
+        super(context);
+
+        this.backColor = backColor;
+        this.foreColor = foreColor;
+        if(fillDirection < 0 || fillDirection > 3){
+            Log.e(TAG, "Filling Direction is a wrong choice, Left to right would be chosen.");
+            this.fillDirection = LEFT_TO_RIGHT;
+        }else this.fillDirection = fillDirection;
+        this.border = Color.BLACK;
+        this.value = 0;
+        this.maxValue = 100;
+
+        paint = new Paint();
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -62,13 +83,13 @@ public class EasyProgressBar extends View {
 
         paint.setColor(foreColor);
         switch (fillDirection) {
-            case 0:
-                canvas.drawRect((int) (w * ((maxValue - value) / maxValue)), 0, w, h, paint);
-                break;
-            case 1:
+            case LEFT_TO_RIGHT:
                 canvas.drawRect(0, 0, (int) (w * (1 - (maxValue - value) / maxValue)), h, paint);
                 break;
-            case 2:
+            case RIGHT_TO_LEFT:
+                canvas.drawRect((int) (w * ((maxValue - value) / maxValue)), 0, w, h, paint);
+                break;
+            case UP_TO_DOWN:
                 canvas.drawRect(0, 0, w, (int) (h * (1 - (maxValue - value) / maxValue)), paint);
                 break;
             default:
@@ -82,6 +103,37 @@ public class EasyProgressBar extends View {
         paint.setStrokeWidth(5);
         canvas.drawRect(0, 0, w - 1, h - 1, paint);
     }
+
+    public void setForeColor(int foreColor){
+        this.foreColor = foreColor;
+        this.invalidate();
+    }
+
+    public int getForeColor(){return foreColor;}
+
+    public void setBackColor(int foreColor){
+        this.backColor = backColor;
+        this.invalidate();
+    }
+
+    public int getBackColor(){return foreColor;}
+
+    public void setBorderColor(int borderColor){
+        this.border = borderColor;
+        this.invalidate();
+    }
+
+    public int getBorderColor(){return border;}
+
+    public void setFillingDirection(int fillDirection){
+        if(fillDirection < 0 || fillDirection > 3){
+            Log.e(TAG, "Filling Direction is a wrong choice, Left to right would be chosen.");
+            this.fillDirection = LEFT_TO_RIGHT;
+        }else this.fillDirection = fillDirection;
+        this.invalidate();
+    }
+
+    public int getFillingDirection(){return fillDirection;}
 
     public void setValue(double progressValue){
         if(progressValue > maxValue) {
@@ -107,11 +159,7 @@ public class EasyProgressBar extends View {
             return;
         }
 
-        if(value > maxValue) {
-            this.value = maxValue;
-            Log.w(TAG, "value is bigger than the new max value, the value has been changed to the new max value.");
-        }
-
+        this.value = (value / this.maxValue) * maxValue;
         this.maxValue = maxValue;
         invalidate();
     }
