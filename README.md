@@ -65,6 +65,9 @@ dependencies {
 # Methods
 there are setters and getters for every attribute, and also some other methods such as:-
 - Constructor `public EasyProgressBar(Context context, int backColor, int foreColor, int fillDirection)` let you create the view programmatically with these parameters which described before.
+- `void setValue(double progressValue)` : sets the current progress value to `progressValue`.
+- `void setMaxValue(double maxValue)` : sets the max value to `maxValue` and the value would be changed to fit the before position per the new `maxValue`.
+- `void addValue(double valueToAdd)` : adds `valueToAdd` to the current progress value.
 - `void addValueAnimated(double valueToAdd_, final double seconds, final int frames)` : adds `valueToAdd_` to the progress bar or fill it like an animation per `maxValue`, the `seconds` parameter is the number of the seconds the animation spend to complete, and the `frames` parameter is the refresh rate of the animation per `seconds` parameter.
 - `void addValueAnimated(double valueToAdd_, final double seconds, final int frames, final Runnable afterAdded)` : this method is exactly like the bove method instead of this is listenening to completion time and then run the `afterAdded` tasks after the animation completed.
 ----------
