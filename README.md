@@ -1,5 +1,5 @@
 # EasyProgressBar
-### A simple nice **ProgressBar** which can be easily customized, and also be used.
+### A simple nice android **ProgressBar** view which can be easily customized, and also it's value can be easily modified.
 
 ##### Changable attributes are size (Width, Height), foreground (**Progress**) colour, background colour, border colour, and filling direction including up to down and down to up (Verical Filling) and (Horizontal Filling).
 ##### And also it can be filled during runtime like an animation with custom time and frames.
